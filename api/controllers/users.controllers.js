@@ -13,18 +13,14 @@ export const createUser = async (req, res) => {
 }
 
 
-
-export const createNewRecomendation = async (req, res) => {
- 
-  const {nickName, category, title, duration, userName, UserEmail, userProfileImage, platform, score, date, movieImage, observation} = req.body
-  console.log(req.body)
-
+export const getUsers = async (req, res) => { 
   try {
-    const newRec = new Recomendations(req.body);
-    const savedRec = await newRec.save();
-    res.status(201).json(savedRec);
+    const usersData = await Users.find()  
+    res.status(201).json(usersData);
   } catch (error) {
-    res.status(500).json({ error: 'Error al crear el producto' });
-    console.log(error)
+    res.status(500).json({ error: 'Error al crear los usuarios' });
+    console.log(error);
   }
 }
+
+

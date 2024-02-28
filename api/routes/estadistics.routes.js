@@ -1,10 +1,10 @@
 import express from 'express';
 const estadisticsRoutes = express.Router();
 
-import  { } from '../controllers/estadistics.controllers.js' 
+import  { createEstadistics, getEstadistics} from '../controllers/estadistics.controllers.js' 
 
-estadisticsRoutes.get('/', );
-estadisticsRoutes.post('/', );
+estadisticsRoutes.get('/', getEstadistics);
+estadisticsRoutes.post('/', createEstadistics);
 
 
 
