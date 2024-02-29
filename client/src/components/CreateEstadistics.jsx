@@ -23,6 +23,7 @@ const CreateEstadistics = () => {
      }, [])
 
      const generateAutomaticEstadistics = async () => {
+      console.log("Creando nueva estadistica")
         try {
           const estadistics = usersData.map((us) => ({
             idEstadistica: uuidv4(),
@@ -34,6 +35,8 @@ const CreateEstadistics = () => {
           }));
           const response = await axios.post("http://localhost:4000/estadistics", estadistics);
           console.log('Estadísticas enviadas correctamente:', response.data);
+          localStorage.setItem('lastGenerationTime', JSON.stringify(new Date()));
+
         } catch (error) {
           console.error('Error al enviar estadísticas:', error);
         }
@@ -42,7 +45,7 @@ const CreateEstadistics = () => {
       useEffect(() => {
         const estadisticsInterval = setInterval(() => {
             generateAutomaticEstadistics();
-        }, 45 * 60 * 1000); // 45 * 60 * 1000); 
+        },  59 * 60 * 1000); // 59 * 60 * 1000); 
         return () => clearInterval(estadisticsInterval);
       }, [usersData]);
 
@@ -55,4 +58,3 @@ const CreateEstadistics = () => {
 
 
 export default CreateEstadistics
-
