@@ -45,7 +45,7 @@ const CreateEstadistics = () => {
       useEffect(() => {
         const estadisticsInterval = setInterval(() => {
             generateAutomaticEstadistics();
-        },  59 * 60 * 1000); // 59 * 60 * 1000); 
+        },  5 * 60 * 1000); 
         return () => clearInterval(estadisticsInterval);
       }, [usersData]);
 

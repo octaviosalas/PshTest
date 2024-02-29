@@ -78,9 +78,7 @@ const WebReport = () => {
            rep.bestPuntuaction,
            lastGenerationTime ? lastGenerationTime.toLocaleString() : 'N/A'
         ]),
-       ];
-
-
+    ];
 
     return (
         <div>
